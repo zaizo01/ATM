@@ -35,7 +35,7 @@ def userRecarga(user):
         \t\t\t\t\t-------------------\n
         """);
     option = int(input('\t\t\t\t\tOPCION: '))
-    if option == 1 or option == 2 or option == 3:
+    if option >= 1 and option <= 3:
         clearConsole();
         amount = int(input('\t\t\t\t\t\t\tMONTO DE LA RECARGA: '));
         userFactura = open(f'factura-{user}.txt', 'a');
@@ -155,7 +155,7 @@ def userRegister():
         """);
         os.system('pause');
         registeredUser = open('registeredUsers.txt', 'a');
-        userData = user + ' ' + password + '\n';
+        userData = user + ' ' + encryptedPassword + '\n';
         registeredUser.write(userData);
         registeredUser.close();
         userBalance = open(f'userBalance-{user}.txt', 'a');
@@ -182,7 +182,7 @@ def userLogin():
     print('\t\t\t\t\t\t-------------------\n');
     for line in open('registeredUsers.txt', 'r').readlines():
         userCredentials = line.split();
-        if user == userCredentials[0] and password == userCredentials[1]:
+        if user == userCredentials[0] and encryptedPassword == userCredentials[1]:
             clearConsole();
             mainMenu();
             return True
