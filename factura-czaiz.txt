@@ -1,0 +1,6 @@
+
+
+FACTURA:
+Cliente:czaiz
+Codigo:80819
+Monto:50
